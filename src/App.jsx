@@ -1,6 +1,7 @@
 import React from 'react';
-import LandingPage from './pages/LandingPage';
-import ChatPage from './pages/ChatPage';
+import LandingPage from './pages/LandingPage.jsx';
+import ChatPage from './pages/ChatPage.jsx';
+import TeamPage from './pages/TeamPage.jsx';
 
 function App() {
   const [route, setRoute] = React.useState(window.location.pathname);
@@ -14,11 +15,14 @@ function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Simple router logic
+  // Simple router logic to render the correct page
   let ComponentToRender;
   switch (route) {
     case '/chat':
       ComponentToRender = ChatPage;
+      break;
+    case '/team':
+      ComponentToRender = TeamPage;
       break;
     case '/':
     default:
@@ -33,4 +37,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;
